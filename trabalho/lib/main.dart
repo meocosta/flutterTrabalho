@@ -38,18 +38,18 @@ class _HomePlacasState extends State<HomePlacas> {
     );
   }
 
-  void verMapa() {
+  /*void verMapa() {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const VerMapa()),
     );
-  }
+  }*/
 
-  /*void verMatriz(){
+  void verMatriz(){
     Navigator.push(
       context, MaterialPageRoute(builder:(context) => const VerMatriz(),)
     );
-  }*/
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,15 +67,15 @@ class _HomePlacasState extends State<HomePlacas> {
               child: const Text('Cadastrar nova Região'),
             ),
 
-            OutlinedButton(
+            /*OutlinedButton(
               onPressed: verMapa,
               child: const Text('Ver mapa conceitual'),
-            ),
+            ),*/
 
-            /*OutlinedButton(
+            OutlinedButton(
               onPressed: verMatriz,
               child: const Text('Ver matriz de deslocamento'),
-            ),*/
+            ),
           ],
         ),
       ),
