@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Regiao.dart';
 
 class CadastroDeRegiao extends StatefulWidget {
   const CadastroDeRegiao({super.key});
@@ -21,19 +22,21 @@ class _CadastroDeRegiaoState extends State<CadastroDeRegiao> {
     'Sudeste',
     'Sudoeste',
   ];
+  final List<Regiao> regioes = []; // <<--- Lista de regiões
 
   void salvarInfo() {
     final nome = controller.text;
-    final velocidade = velocidadeControl.text;
+    final velocidade = double.tryParse(velocidadeControl.text);
     final direcao = direcaoSelect;
 
-    if (nome.isNotEmpty && velocidade.isNotEmpty && direcao != null) {
-      // ignore: avoid_print
-      print('região: $nome \n velocidade:$velocidade \n direção: $direcao \n');
+    if (nome.isNotEmpty && velocidade != null && direcao != null) {
+      final novaRegiao = Regiao(nome, velocidade, direcao);
+      setState(() {
+        regioes.add(novaRegiao); // <<--- Aqui usa a lista
+      });
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text('Região $nome salva!')));
-
+      ).showSnackBar(SnackBar(content: Text('Região $nome salva.')));
       controller.clear();
       velocidadeControl.clear();
       setState(() {
@@ -49,9 +52,9 @@ class _CadastroDeRegiaoState extends State<CadastroDeRegiao> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title:Text('cadastrar uma Região')),
+      appBar: AppBar(title: Text('cadastrar uma Região')),
       body: Padding(
-        padding:EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Column(
           children: [
             TextField(
@@ -69,12 +72,13 @@ class _CadastroDeRegiaoState extends State<CadastroDeRegiao> {
               value: direcaoSelect,
               hint: Text("Selecione uma direção"),
               isExpanded: true,
-              items: direcoes.map((direcaomap) {
-                return DropdownMenuItem(
-                  value: direcaomap,
-                  child: Text(direcaomap),
-                );
-              }).toList(),
+              items:
+                  direcoes.map((direcaomap) {
+                    return DropdownMenuItem(
+                      value: direcaomap,
+                      child: Text(direcaomap),
+                    );
+                  }).toList(),
               onChanged: (String? newValue) {
                 setState(() {
                   direcaoSelect = newValue;
@@ -82,13 +86,13 @@ class _CadastroDeRegiaoState extends State<CadastroDeRegiao> {
               },
             ),
 
-            SizedBox(height:20),
+            SizedBox(height: 20),
             ElevatedButton(
               onPressed: salvarInfo,
               child: Text('Salvar Informações'),
-            )
-          ]
-        )
+            ),
+          ],
+        ),
       ),
     );
   }

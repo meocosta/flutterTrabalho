@@ -71,10 +71,10 @@ class _HomePlacasState extends State<HomePlacas> {
               child: const Text('Ver mapa conceitual'),
             ),
 
-            OutlinedButton(
+            /*OutlinedButton(
               onPressed: verMatriz,
               child: const Text('Ver matriz de deslocamento'),
-            ),
+            ),*/
           ],
         ),
       ),
