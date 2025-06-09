@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Regiao.dart';
+import 'regioes.dart';
 
 class VerMapa extends StatefulWidget {
   final List<Regiao>? regioes;
@@ -11,7 +12,6 @@ class VerMapa extends StatefulWidget {
 }
 
 class _VerMapaState extends State<VerMapa> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,17 +32,21 @@ class _VerMapaState extends State<VerMapa> {
                 SizedBox(),
                 Padding(
                   padding: EdgeInsets.all(8.0),
-                  child: Text('Vetores',
-                      style: TextStyle(fontWeight: FontWeight.bold)),
+                  child: Text(
+                    'Vetores',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
                 ),
                 Padding(
                   padding: EdgeInsets.all(8.0),
-                  child: Text('Direção',
-                      style: TextStyle(fontWeight: FontWeight.bold)),
+                  child: Text(
+                    'Direção',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
                 ),
               ],
             ),
-            for (final regiao in widget.regioes ?? [])
+            for (final regiao in regioes ?? [])
               TableRow(
                 children: [
                   Padding(
@@ -61,7 +65,7 @@ class _VerMapaState extends State<VerMapa> {
               ),
           ],
         ),
-    ),
+      ),
     );
   }
 }

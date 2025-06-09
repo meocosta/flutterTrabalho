@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Regiao.dart';
+import 'regioes.dart';
 
 class CadastroDeRegiao extends StatefulWidget {
   const CadastroDeRegiao({super.key});
@@ -22,7 +23,6 @@ class _CadastroDeRegiaoState extends State<CadastroDeRegiao> {
     'Sudeste',
     'Sudoeste',
   ];
-  final List<Regiao> regioes = []; // <<--- Lista de regiões
 
   void salvarInfo() {
     final nome = controller.text;
