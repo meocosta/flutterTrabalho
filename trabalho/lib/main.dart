@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'CadastroDeRegiao.dart';
 import 'verMapa.dart';
 import 'VerMatriz.dart';
-import 'Regiao.dart';
 
 void main() {
   runApp(const PlacasApp());
@@ -38,12 +37,12 @@ class _HomePlacasState extends State<HomePlacas> {
     );
   }
 
-  /*void verMapa() {
+  void verMapa() {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const VerMapa()),
     );
-  }*/
+  }
 
   void verMatriz(){
     Navigator.push(
@@ -67,10 +66,10 @@ class _HomePlacasState extends State<HomePlacas> {
               child: const Text('Cadastrar nova Região'),
             ),
 
-            /*OutlinedButton(
+            OutlinedButton(
               onPressed: verMapa,
               child: const Text('Ver mapa conceitual'),
-            ),*/
+            ),
 
             OutlinedButton(
               onPressed: verMatriz,
